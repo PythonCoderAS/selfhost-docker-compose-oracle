@@ -12,7 +12,6 @@ services:
       - "/:/host:ro,rslave"
     labels:
       org.label-schema.group: "monitoring"
-    restart: unless-stopped
   nginx:
     image: nginx:1-alpine
     volumes:
