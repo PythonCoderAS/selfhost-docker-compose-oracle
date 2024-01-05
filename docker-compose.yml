@@ -12,17 +12,6 @@ services:
       - "/:/host:ro,rslave"
     labels:
       org.label-schema.group: "monitoring"
-  fail2ban:
-    image: crazymax/fail2ban:latest
-    container_name: fail2ban
-    network_mode: "host"
-    cap_add:
-      - NET_ADMIN
-      - NET_RAW
-    volumes:
-      - "./fail2ban/data:/data"
-      - "fail2ban-db:/data/db:rw"
-      - "/var/log:/var/log:ro"
     restart: unless-stopped
   nginx:
     image: nginx:1-alpine
