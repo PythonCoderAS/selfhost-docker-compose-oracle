@@ -21,7 +21,10 @@ services:
       - ./nginx/conf:/etc/nginx/conf.d:ro
     restart: unless-stopped
     network_mode: "host"
-
-volumes:
-  fail2ban-db:
-    driver: local
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    command: --interval 3600 --cleanup
