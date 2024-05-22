@@ -31,6 +31,10 @@ services:
   warror:
     image: atdr.meo.ws/archiveteam/warrior-dockerfile
     container_name: warrior
+    environment:
+      - "DOWNLOADER=BocchiTheRock1"
+      - "SELECTED_PROJECT=auto"
+      - "CONCURRENT_ITEMS=6"
     ports:
       - 8001:8001
       
