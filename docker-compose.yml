@@ -31,6 +31,7 @@ services:
   warror:
     image: atdr.meo.ws/archiveteam/warrior-dockerfile
     container_name: warrior
+    restart: unless-stopped
     environment:
       - "DOWNLOADER=BocchiTheRock1"
       - "SELECTED_PROJECT=auto"
