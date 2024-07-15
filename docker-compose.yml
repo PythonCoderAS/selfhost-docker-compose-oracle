@@ -28,7 +28,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     command: --interval 3600 --cleanup
-  warror:
+  warrior:
     image: atdr.meo.ws/archiveteam/warrior-dockerfile
     container_name: warrior
     restart: unless-stopped
