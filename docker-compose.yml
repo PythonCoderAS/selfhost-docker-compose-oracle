@@ -13,6 +13,15 @@ services:
       - "/:/host:ro,rslave"
     labels:
       org.label-schema.group: "monitoring"
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    restart: unless-stopped
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
   nginx:
     image: nginx:1-alpine
     container_name: nginx
