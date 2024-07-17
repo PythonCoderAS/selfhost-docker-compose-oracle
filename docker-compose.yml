@@ -22,6 +22,7 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
+    network_mode: "host"
   nginx:
     image: nginx:1-alpine
     container_name: nginx
