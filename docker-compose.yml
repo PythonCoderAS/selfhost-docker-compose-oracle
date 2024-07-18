@@ -50,6 +50,20 @@ services:
       - "CONCURRENT_ITEMS=6"
     ports:
       - 8001:8001
+  promtail:
+    volumes:
+      - ./loki:/config:ro
+      - /var/log:/var/log:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    image: grafana/promtail:3.0.0
+    command:
+      - "-config.file=/config/promtail-config.yaml"
+      - "-config.expand-env=true"
+    environment:
+      - HOSTNAME
+    restart: unless-stopped
+    network_mode: host
+
       
 networks:
   default:
