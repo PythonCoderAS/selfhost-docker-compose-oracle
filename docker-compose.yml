@@ -51,6 +51,7 @@ services:
     ports:
       - 8001:8001
   promtail:
+    container_name: promtail
     volumes:
       - ./loki:/config:ro
       - /var/log:/var/log:ro
