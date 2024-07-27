@@ -64,7 +64,15 @@ services:
       - HOSTNAME
     restart: unless-stopped
     network_mode: host
-
+  tott:
+    image: ghcr.io/pythoncoderas/terroroftinytown-client-grab
+    container_name: tott
+    command:
+      - "20"
+      - "PokestarFan"
+    restart: unless-stopped
+    logging:
+      driver: none
       
 networks:
   default:
